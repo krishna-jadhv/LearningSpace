@@ -6,14 +6,27 @@ function App() {
 
   return (
     <>
-      <div className="bg-white h-screen w-screen m-0 p-0">
-        <nav className="m-0 p-0">
-          <ul className="m-0 p-5 bg-gradient-to-b from-blue-500 to-white flex py-8">
-            <li className="mx-4 text-black text-3xl">Home</li>
-            <li className="mx-4 text-black text-3xl">Projects</li>
-            <li className="mx-4 text-black text-3xl">Contact us</li>
-          </ul>
-        </nav>
+      {/* <nav class="bg-deepBlue h-20 py-5">
+        <div className='relative mx-auto flex items-center justify-center'>
+          <div className='text-white px-6'>hiii</div>
+          <div className='text-white px-6'>bcbc</div>
+          <div className='text-white px-6'>6565</div>
+ 
+        </div>
+      </nav> */}
+      <div className='bg-slate-900 place-content-center h-screen'>
+        <h1 className='text-center text-yellow-500 text-4xl m-6 font-bold'>Fitness First</h1>
+        <div className=''>
+          <div className='p-6 max-w-sm mx-auto bg-white rounded-xl'>
+            <div className='cursor-pointer'>
+              <img src="https://images.pexels.com/photos/1769735/pexels-photo-1769735.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" className='rounded-lg' />
+            </div>
+              <div className='font-bold text-yellow-500'>
+                Tailwind css 
+                <p className=' font-thin'> By Krishna</p>
+              </div>
+          </div>
+        </div>
       </div>
     </>
   );
