@@ -1,0 +1,169 @@
+STATUS | wrapper  | 2026/09/06 08:00:01 | --> Wrapper Started as Service
+STATUS | wrapper  | 2026/09/06 08:00:01 | Java Service Wrapper Standard Edition 64-bit 3.5.43
+STATUS | wrapper  | 2026/09/06 08:00:01 | Copyright (C) 1999-2020 Tanuki Software, Ltd. All Rights Reserved.
+STATUS | wrapper  | 2026/09/06 08:00:02 | Launching a JVM...
+INFO   | jvm 1    | 2026/09/06 08:00:03 | Initializing Java Virtual Machine (Java 17.0.8)...
+INFO   | jvm 1    | 2026/09/06 08:00:03 | JVM Arguments: -Djava.awt.headless=true -Xms1024m -Xmx4096m -XX:+UseG1GC
+INFO   | jvm 1    | 2026/09/06 08:00:05 | [Main] Application Framework initialization started.
+INFO   | jvm 1    | 2026/09/06 08:00:08 | [DatabasePool] Connecting to database driver com.mysql.cj.jdbc.Driver at 192.168.1.50:3306...
+INFO   | jvm 1    | 2026/09/06 08:00:10 | [DatabasePool] Database connection established (Pool size: 10/100).
+INFO   | jvm 1    | 2026/09/06 08:00:12 | [WebServer] Starting embedded Jetty HTTP server on 0.0.0.0:8080...
+INFO   | jvm 1    | 2026/09/06 08:00:14 | [WebServer] HTTP server started successfully on port 8080.
+STATUS | wrapper  | 2026/09/06 08:00:15 | Startup completed successfully.
+INFO   | jvm 1    | 2026/09/06 08:05:22 | [AuthService] User admin logged in successfully from IP 10.0.4.15.
+INFO   | jvm 1    | 2026/09/06 08:12:44 | [DiscoveryEngine] Initiating subnet scan for 10.0.0.0/24...
+INFO   | jvm 1    | 2026/09/06 08:15:01 | [DiscoveryEngine] Discovered 42 active network devices in subnet 10.0.0.0/24.
+WARN   | jvm 1    | 2026/09/06 08:22:30 | [GC (Allocation Failure) 3102M->1204M(4096M), 0.1241203 secs]
+INFO   | jvm 1    | 2026/09/06 08:30:11 | [AuthService] User developer1 logged in successfully from IP 10.0.4.88.
+WARN   | jvm 1    | 2026/09/06 08:35:12 | [ThreadPool] Active worker threads (92/100) approaching maximum capacity.
+ERROR  | jvm 1    | 2026/09/06 08:40:02 | [TaskRunner] Failed to execute scheduled ping task for host 192.168.1.105: Connection timed out
+ERROR  | jvm 1    | 2026/09/06 08:40:05 | [TaskRunner] java.net.ConnectException: Connection timed out (Connection timed out)
+ERROR  | jvm 1    | 2026/09/06 08:40:05 |     at java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+ERROR  | jvm 1    | 2026/09/06 08:40:05 |     at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:777)
+ERROR  | jvm 1    | 2026/09/06 08:40:05 |     at com.opmanager.net.PingClient.connect(PingClient.java:142)
+INFO   | jvm 1    | 2026/09/06 08:45:00 | [HealthCheck] System health status: OK. Free memory: 1892MB.
+WARN   | jvm 1    | 2026/09/06 08:52:19 | [DatabasePool] High query latency detected on query 'SELECT * FROM device_metrics': 4852ms
+ERROR  | jvm 1    | 2026/09/06 09:01:10 | [DatabasePool] Could not acquire connection from pool: Communications link failure
+ERROR  | jvm 1    | 2026/09/06 09:01:10 | com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+ERROR  | jvm 1    | 2026/09/06 09:01:10 |     at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+ERROR  | jvm 1    | 2026/09/06 09:01:10 |     at com.mysql.cj.jdbc.OsgiDataSource.getConnection(OsgiDataSource.java:92)
+WARN   | jvm 1    | 2026/09/06 09:01:15 | [DatabasePool] Attempting connection retry (1/5) to 192.168.1.50:3306...
+INFO   | jvm 1    | 2026/09/06 09:01:18 | [DatabasePool] Connection re-established successfully.
+INFO   | jvm 1    | 2026/09/06 09:15:00 | [ScheduledBackup] Initiating automated database backup to /var/backups/db_20260906.sql...
+INFO   | jvm 1    | 2026/09/06 09:18:22 | [ScheduledBackup] Database backup completed successfully. Total size: 412MB.
+WARN   | jvm 1    | 2026/09/06 09:30:45 | [GC (G1 Evacuation Pause) (young) 3890M->3412M(4096M), 0.4812301 secs]
+WARN   | jvm 1    | 2026/09/06 09:31:02 | [GC (G1 Humongous Allocation) 3998M->3802M(4096M), 0.9123041 secs]
+ERROR  | jvm 1    | 2026/09/06 09:32:15 | [MemoryManager] Critical heap space exhaustion detected! Used: 4012MB / Total: 4096MB
+ERROR  | jvm 1    | 2026/09/06 09:32:18 | Exception in thread "RMI TCP Connection(12)-10.0.4.15" java.lang.OutOfMemoryError: Java heap space
+ERROR  | jvm 1    | 2026/09/06 09:32:18 |     at com.opmanager.analytics.ReportGenerator.buildLargeDataset(ReportGenerator.java:310)
+ERROR  | jvm 1    | 2026/09/06 09:32:18 |     at com.opmanager.analytics.ReportGenerator.generatePdf(ReportGenerator.java:112)
+STATUS | wrapper  | 2026/09/06 09:32:30 | JVM appeared hung: Timed out waiting for signal from JVM (Ping timeout 30s).
+STATUS | wrapper  | 2026/09/06 09:32:30 | Dumping JVM core state before termination...
+STATUS | wrapper  | 2026/09/06 09:32:31 | Thread dump written to /opt/opmanager/logs/wrapper_thread_dump.txt
+STATUS | wrapper  | 2026/09/06 09:32:32 | Terminating JVM process (PID 18420)...
+STATUS | wrapper  | 2026/09/06 09:32:33 | JVM exited unexpectedly (exit code 137).
+STATUS | wrapper  | 2026/09/06 09:32:33 | Automatic restart enabled. Restarting JVM (Attempt 1/5)...
+STATUS | wrapper  | 2026/09/06 09:32:35 | Launching a JVM...
+INFO   | jvm 2    | 2026/09/06 09:32:36 | Initializing Java Virtual Machine (Java 17.0.8)...
+INFO   | jvm 2    | 2026/09/06 09:32:36 | JVM Arguments: -Djava.awt.headless=true -Xms1024m -Xmx4096m -XX:+UseG1GC
+INFO   | jvm 2    | 2026/09/06 09:32:38 | [Main] Application Framework initialization started.
+ERROR  | jvm 2    | 2026/09/06 09:32:40 | [WebServer] Failed to bind to 0.0.0.0:8080: Address already in use
+ERROR  | jvm 2    | 2026/09/06 09:32:40 | java.net.BindException: Address already in use
+ERROR  | jvm 2    | 2026/09/06 09:32:40 |     at java.base/sun.nio.ch.Net.bind0(Native Method)
+ERROR  | jvm 2    | 2026/09/06 09:32:40 |     at java.base/sun.nio.ch.Net.bind(Net.java:555)
+ERROR  | jvm 2    | 2026/09/06 09:32:40 |     at com.opmanager.web.ServerContainer.start(ServerContainer.java:88)
+STATUS | wrapper  | 2026/09/06 09:32:42 | JVM exited unexpectedly (exit code 1).
+STATUS | wrapper  | 2026/09/06 09:32:45 | Waiting 5 seconds before restarting JVM (Attempt 2/5)...
+STATUS | wrapper  | 2026/09/06 09:32:50 | Launching a JVM...
+INFO   | jvm 3    | 2026/09/06 09:32:51 | Initializing Java Virtual Machine (Java 17.0.8)...
+INFO   | jvm 3    | 2026/09/06 09:32:54 | [Main] Application Framework initialization started.
+INFO   | jvm 3    | 2026/09/06 09:32:56 | [DatabasePool] Connection established.
+INFO   | jvm 3    | 2026/09/06 09:32:58 | [WebServer] HTTP server started successfully on port 8080.
+STATUS | wrapper  | 2026/09/06 09:33:00 | Startup completed successfully.
+INFO   | jvm 3    | 2026/09/06 09:45:10 | [HealthCheck] System health status: OK. Free memory: 2810MB.
+STATUS | wrapper  | 2026/09/06 10:00:00 | Received stop signal from system service controller.
+INFO   | jvm 3    | 2026/09/06 10:00:01 | [Main] Initiating graceful shutdown sequence...
+INFO   | jvm 3    | 2026/09/06 10:00:02 | [DatabasePool] Closing active connections...
+INFO   | jvm 3    | 2026/09/06 10:00:03 | [WebServer] Stopped HTTP server on port 8080.
+STATUS | wrapper  | 2026/09/06 10:00:04 | JVM exited normally (exit code 0).
+STATUS | wrapper  | 2026/09/06 10:00:05 | <-- Wrapper Stopped
+STATUS | wrapper  | 2026/09/05 06:00:00 | --> Wrapper Started as Service
+STATUS | wrapper  | 2026/09/05 06:00:00 | Java Service Wrapper Standard Edition 64-bit 3.5.43
+STATUS | wrapper  | 2026/09/05 06:00:00 | Copyright (C) 1999-2020 Tanuki Software, Ltd. All Rights Reserved.
+STATUS | wrapper  | 2026/09/05 06:00:01 | Launching a JVM...
+INFO   | jvm 1    | 2026/09/05 06:00:02 | Initializing Java Virtual Machine (Java 17.0.8)...
+INFO   | jvm 1    | 2026/09/05 06:00:02 | JVM Arguments: -Djava.awt.headless=true -Xms1024m -Xmx4096m -XX:+UseG1GC -Dapp.name=OpManager
+INFO   | jvm 1    | 2026/09/05 06:00:04 | [Main] Application Framework initialization started.
+INFO   | jvm 1    | 2026/09/05 06:00:07 | [DatabasePool] Connecting to driver com.mysql.cj.jdbc.Driver at 10.0.1.50:3306/tws_db...
+INFO   | jvm 1    | 2026/09/05 06:00:09 | [DatabasePool] Database connection established successfully (Pool size: 10/100).
+INFO   | jvm 1    | 2026/09/05 06:00:11 | [WebServer] Starting embedded Jetty HTTP server on 0.0.0.0:8080...
+INFO   | jvm 1    | 2026/09/05 06:00:13 | [WebServer] HTTP server started successfully on port 8080.
+STATUS | wrapper  | 2026/09/05 06:00:14 | Startup completed successfully.
+INFO   | jvm 1    | 2026/09/05 06:15:00 | [HealthCheck] System status: OK. Free Heap: 3120MB / 4096MB.
+INFO   | jvm 1    | 2026/09/05 07:00:00 | [ScheduledTask] Running daily system maintenance job #101...
+INFO   | jvm 1    | 2026/09/05 07:02:15 | [ScheduledTask] Daily system maintenance job #101 finished in 135s.
+INFO   | jvm 1    | 2026/09/05 08:00:12 | [AuthService] User admin logged in successfully from IP 10.0.4.15.
+INFO   | jvm 1    | 2026/09/05 08:30:22 | [AuthService] User operator_krishna logged in successfully from IP 10.0.4.88.
+INFO   | jvm 1    | 2026/09/05 09:12:44 | [DiscoveryEngine] Initiating subnet scan for 192.168.1.0/24...
+INFO   | jvm 1    | 2026/09/05 09:15:01 | [DiscoveryEngine] Discovered 54 active network devices in subnet 192.168.1.0/24.
+WARN   | jvm 1    | 2026/09/05 10:22:30 | [GC (Allocation Failure) 3102M->1204M(4096M), 0.1241203 secs]
+INFO   | jvm 1    | 2026/09/05 11:00:00 | [HealthCheck] System status: OK. Free Heap: 2892MB / 4096MB.
+INFO   | jvm 1    | 2026/09/05 12:45:10 | [AuthService] User guest_user logged in successfully from IP 10.0.4.102.
+WARN   | jvm 1    | 2026/09/05 13:10:05 | [AuthService] Failed login attempt for user 'admin' from IP 192.168.1.200 (Invalid Password).
+WARN   | jvm 1    | 2026/09/05 13:10:08 | [AuthService] Failed login attempt for user 'admin' from IP 192.168.1.200 (Invalid Password).
+WARN   | jvm 1    | 2026/09/05 13:10:12 | [AuthService] Account 'admin' temporarily locked due to 3 failed attempts from 192.168.1.200.
+INFO   | jvm 1    | 2026/09/05 14:00:00 | [HealthCheck] System status: OK. Free Heap: 2540MB / 4096MB.
+INFO   | jvm 1    | 2026/09/05 15:30:00 | [ScheduledBackup] Initiating automated database backup...
+INFO   | jvm 1    | 2026/09/05 15:34:12 | [ScheduledBackup] Backup saved to /var/backups/db_20260905.sql (Size: 450MB).
+WARN   | jvm 1    | 2026/09/05 17:45:22 | [ThreadPool] Active worker threads (88/100) approaching maximum capacity.
+INFO   | jvm 1    | 2026/09/05 19:00:00 | [HealthCheck] System status: OK. Free Heap: 2100MB / 4096MB.
+INFO   | jvm 1    | 2026/09/05 22:15:30 | [AuthService] User operator_krishna logged out.
+INFO   | jvm 1    | 2026/09/06 00:00:00 | [LogRotator] Rotating daily application logs...
+INFO   | jvm 1    | 2026/09/06 01:00:00 | [HealthCheck] System status: OK. Free Heap: 1950MB / 4096MB.
+WARN   | jvm 1    | 2026/09/06 02:15:40 | [DatabasePool] Query execution latency high: 3420ms [Query: SELECT * FROM network_events]
+ERROR  | jvm 1    | 2026/09/06 03:10:12 | [TaskRunner] Connection refused to target SNMP agent 192.168.1.105:161
+ERROR  | jvm 1    | 2026/09/06 03:10:12 | java.net.ConnectException: Connection refused (Connection refused)
+ERROR  | jvm 1    | 2026/09/06 03:10:12 |     at java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+ERROR  | jvm 1    | 2026/09/06 03:10:12 |     at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:777)
+ERROR  | jvm 1    | 2026/09/06 03:10:12 |     at com.opmanager.net.SnmpClient.pollDevice(SnmpClient.java:204)
+INFO   | jvm 1    | 2026/09/06 04:00:00 | [HealthCheck] System status: OK. Free Heap: 1820MB / 4096MB.
+WARN   | jvm 1    | 2026/09/06 05:22:10 | [GC (Allocation Failure) 3450M->1800M(4096M), 0.2104521 secs]
+INFO   | jvm 1    | 2026/09/06 06:00:00 | [HealthCheck] System status: OK. Free Heap: 1750MB / 4096MB.
+INFO   | jvm 1    | 2026/09/06 07:15:02 | [AuthService] User admin logged in successfully from IP 10.0.4.15.
+WARN   | jvm 1    | 2026/09/06 08:05:12 | [ThreadPool] Active worker threads (95/100) approaching maximum capacity.
+WARN   | jvm 1    | 2026/09/06 08:10:44 | [ThreadPool] Worker thread pool exhausted! Incoming connections queuing up...
+ERROR  | jvm 1    | 2026/09/06 08:12:01 | [WebServer] Reached max threads count (100). Rejecting connection from 10.0.4.55
+ERROR  | jvm 1    | 2026/09/06 08:12:03 | [WebServer] Reached max threads count (100). Rejecting connection from 10.0.4.56
+ERROR  | jvm 1    | 2026/09/06 08:15:10 | [DatabasePool] Could not acquire connection from pool: Communications link failure
+ERROR  | jvm 1    | 2026/09/06 08:15:10 | com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+ERROR  | jvm 1    | 2026/09/06 08:15:10 |     at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+ERROR  | jvm 1    | 2026/09/06 08:15:10 |     at com.mysql.cj.jdbc.OsgiDataSource.getConnection(OsgiDataSource.java:92)
+ERROR  | jvm 1    | 2026/09/06 08:15:10 |     at com.opmanager.db.DBManager.executeQuery(DBManager.java:145)
+WARN   | jvm 1    | 2026/09/06 08:15:15 | [DatabasePool] Attempting connection retry (1/5) to 10.0.1.50:3306...
+WARN   | jvm 1    | 2026/09/06 08:15:20 | [DatabasePool] Attempting connection retry (2/5) to 10.0.1.50:3306...
+INFO   | jvm 1    | 2026/09/06 08:15:24 | [DatabasePool] Connection re-established successfully.
+INFO   | jvm 1    | 2026/09/06 08:30:00 | [ReportGenerator] Batch generation started for 500 network performance reports...
+WARN   | jvm 1    | 2026/09/06 08:42:15 | [GC (G1 Evacuation Pause) (young) 3890M->3412M(4096M), 0.4812301 secs]
+WARN   | jvm 1    | 2026/09/06 08:43:02 | [GC (G1 Humongous Allocation) 3998M->3802M(4096M), 0.9123041 secs]
+ERROR  | jvm 1    | 2026/09/06 08:44:15 | [MemoryManager] Critical heap space exhaustion detected! Used: 4050MB / Total: 4096MB
+ERROR  | jvm 1    | 2026/09/06 08:44:18 | Exception in thread "RMI TCP Connection(12)-10.0.4.15" java.lang.OutOfMemoryError: Java heap space
+ERROR  | jvm 1    | 2026/09/06 08:44:18 |     at com.opmanager.analytics.ReportGenerator.buildLargeDataset(ReportGenerator.java:310)
+ERROR  | jvm 1    | 2026/09/06 08:44:18 |     at com.opmanager.analytics.ReportGenerator.generatePdf(ReportGenerator.java:112)
+ERROR  | jvm 1    | 2026/09/06 08:44:18 |     at com.opmanager.analytics.ReportJob.execute(ReportJob.java:45)
+ERROR  | jvm 1    | 2026/09/06 08:44:19 | Exception in thread "TaskScheduler-3" java.lang.OutOfMemoryError: Java heap space
+STATUS | wrapper  | 2026/09/06 08:44:45 | JVM appeared hung: Timed out waiting for signal from JVM (Ping timeout 30s).
+STATUS | wrapper  | 2026/09/06 08:44:45 | Dumping JVM core state before termination...
+STATUS | wrapper  | 2026/09/06 08:44:46 | Thread dump written to /opt/opmanager/logs/wrapper_thread_dump.txt
+STATUS | wrapper  | 2026/09/06 08:44:47 | Terminating JVM process (PID 18420)...
+STATUS | wrapper  | 2026/09/06 08:44:48 | JVM exited unexpectedly (exit code 137).
+STATUS | wrapper  | 2026/09/06 08:44:48 | Automatic restart enabled. Restarting JVM (Attempt 1/5)...
+STATUS | wrapper  | 2026/09/06 08:44:50 | Launching a JVM...
+INFO   | jvm 2    | 2026/09/06 08:44:51 | Initializing Java Virtual Machine (Java 17.0.8)...
+INFO   | jvm 2    | 2026/09/06 08:44:51 | JVM Arguments: -Djava.awt.headless=true -Xms1024m -Xmx4096m -XX:+UseG1GC -Dapp.name=OpManager
+INFO   | jvm 2    | 2026/09/06 08:44:53 | [Main] Application Framework initialization started.
+ERROR  | jvm 2    | 2026/09/06 08:44:55 | [WebServer] Failed to bind to 0.0.0.0:8080: Address already in use
+ERROR  | jvm 2    | 2026/09/06 08:44:55 | java.net.BindException: Address already in use
+ERROR  | jvm 2    | 2026/09/06 08:44:55 |     at java.base/sun.nio.ch.Net.bind0(Native Method)
+ERROR  | jvm 2    | 2026/09/06 08:44:55 |     at java.base/sun.nio.ch.Net.bind(Net.java:555)
+ERROR  | jvm 2    | 2026/09/06 08:44:55 |     at com.opmanager.web.ServerContainer.start(ServerContainer.java:88)
+STATUS | wrapper  | 2026/09/06 08:44:57 | JVM exited unexpectedly (exit code 1).
+STATUS | wrapper  | 2026/09/06 08:45:00 | Waiting 5 seconds before restarting JVM (Attempt 2/5)...
+STATUS | wrapper  | 2026/09/06 08:45:05 | Launching a JVM...
+INFO   | jvm 3    | 2026/09/06 08:45:06 | Initializing Java Virtual Machine (Java 17.0.8)...
+INFO   | jvm 3    | 2026/09/06 08:45:08 | [Main] Application Framework initialization started.
+INFO   | jvm 3    | 2026/09/06 08:45:11 | [DatabasePool] Connection established successfully.
+INFO   | jvm 3    | 2026/09/06 08:45:13 | [WebServer] HTTP server started successfully on port 8080.
+STATUS | wrapper  | 2026/09/06 08:45:15 | Startup completed successfully.
+INFO   | jvm 3    | 2026/09/06 09:00:00 | [HealthCheck] System health status: OK. Free Heap: 3200MB / 4096MB.
+INFO   | jvm 3    | 2026/09/06 10:15:22 | [AuthService] User admin logged in successfully from IP 10.0.4.15.
+INFO   | jvm 3    | 2026/09/06 11:30:00 | [HealthCheck] System health status: OK. Free Heap: 2950MB / 4096MB.
+INFO   | jvm 3    | 2026/09/06 12:00:00 | [HealthCheck] System health status: OK. Free Heap: 2800MB / 4096MB.
+WARN   | jvm 3    | 2026/09/06 13:14:20 | [PollingEngine] Polling delay detected for node 192.168.1.250 (Latency: 1250ms)
+INFO   | jvm 3    | 2026/09/06 14:00:00 | [HealthCheck] System health status: OK. Free Heap: 2650MB / 4096MB.
+INFO   | jvm 3    | 2026/09/06 15:00:00 | [HealthCheck] System health status: OK. Free Heap: 2500MB / 4096MB.
+STATUS | wrapper  | 2026/09/06 15:15:00 | Received stop signal from system service controller.
+INFO   | jvm 3    | 2026/09/06 15:15:01 | [Main] Initiating graceful shutdown sequence...
+INFO   | jvm 3    | 2026/09/06 15:15:02 | [DatabasePool] Closing active pool connections...
+INFO   | jvm 3    | 2026/09/06 15:15:03 | [WebServer] Stopped HTTP server on port 8080.
+STATUS | wrapper  | 2026/09/06 15:15:04 | JVM exited normally (exit code 0).
+STATUS | wrapper  | 2026/09/06 15:15:05 | <-- Wrapper Stopped
